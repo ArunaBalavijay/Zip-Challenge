@@ -14,7 +14,6 @@ namespace Zip.Challenge.ApiGateway
                     webBuilder.UseStartup<Startup>();
                 })
                 .ConfigureHostBuilder()
-                //.UseRabbitMq()
                 .Build()
                 .Run();
         }
