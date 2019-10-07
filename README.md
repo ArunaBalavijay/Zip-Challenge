@@ -2,31 +2,31 @@
 
 ## Quick Summary
 
-This project is developed with a basic distributed system using the microservices architecture. It uses `CQRS` (Command Query Responsibility Segregation) pattern to separate reads and writes into separate models, using commands to update data, and queries to read data. Also it uses `RabbitMQ` as service bus, to send messages across the distributed services, and `MongoDB`, which is a NoSQL document database to persist the data. 
+This project is developed with a basic distributed system using microservices architecture. It uses `CQRS` (_Command Query Responsibility Segregation_) pattern to separate reads and writes, using commands to update data, and queries to read data. Also it uses `RabbitMQ` as service bus, to send messages across the distributed services, and `MongoDB`, which is a NoSQL document database to persist the data. 
 
-Api gateway project acts as a single point of entry for a defined group of microservices (just one service for the sake here) which sits in front of an application programming interface (API). We have Identity service as micro service which is responsible for handling the incoming messages (or actually the commands that will be distributed through the services bus). This service will let the user register their information, retrieve their details back, list all registered users, create account and list all the accounts.
+Api gateway project acts as a single point of entry for a defined group of microservices (just one service for the sake here) which sits in front of an `application programming interface` (API). We have Identity service as micro service which is responsible for handling the incoming messages (or actually the commands that will be distributed through the services bus). This service will let the user register their information, retrieve their details back, list all the registered users, create account and list them.
 
-Using Docker and Docker Compose, entire application can be packed into the container and can access the api gateway locally through the container or can deploy the same into the virtual machine that runs in the cloud.
+Using Docker and Docker Compose, entire application can be packed into the container and can access the api gateway locally through the container or can deploy the same into a virtual machine that runs in the cloud.
 
 ## Instructions
 
 ### Dockerization
 
-Run below `docker-compose` command in an “elevated” PowerShell (run it as administrator) in Windows or in Mac terminal in Mac.
+Run below `docker-compose` command in an “elevated” PowerShell (run it as administrator) in Windows or in Mac terminal.
 
 ```bash
 docker-compose up -d
 ```
 
-Note: For the first time, it may take some time to download all the required images and to bring all the containers up.
+_Note_: For the first time, it may take some time to download all the required images and to bring all the containers up.
 
 ### Health Check
 
-Once the containers are up, the below health check api end point can be accessed in the browser.
+Once the containers are up, the below health check api end point can be accessed in the browser to make sure the setup goes well.
 
 [http://localhost:8080/healthcheck](http://localhost:8080/healthcheck)
 
-And, it should return the below payload if it the dockerization goes well locally.
+The health check api should return the payload as below if the dockerization goes well locally.
 
 ```json
 {"status":"Healthy"}
