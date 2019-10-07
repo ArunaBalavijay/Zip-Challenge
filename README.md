@@ -2,7 +2,7 @@
 
 ## Quick Summary
 
-This project was developed with a basic distributed system using the microservices architecture. It uses `CQRS` (Command Query Responsibility Segregation) pattern to separate reads and writes into separate models, using commands to update data, and queries to read data. Also it uses `RabbitMQ` as service bus, to send messages across the distributed services, and `MongoDB`, which is a NoSQL document database to persist the data. 
+This project is developed with a basic distributed system using the microservices architecture. It uses `CQRS` (Command Query Responsibility Segregation) pattern to separate reads and writes into separate models, using commands to update data, and queries to read data. Also it uses `RabbitMQ` as service bus, to send messages across the distributed services, and `MongoDB`, which is a NoSQL document database to persist the data. 
 
 Api gateway project acts as a single point of entry for a defined group of microservices (just one service for the sake here) which sits in front of an application programming interface (API). We have Identity service as micro service which is responsible for handling the incoming messages (or actually the commands that will be distributed through the services bus). This service will let the user register their information, retrieve their details back, list all registered users, create account and list all the accounts.
 
