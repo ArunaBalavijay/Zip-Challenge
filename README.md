@@ -6,7 +6,7 @@ This project is developed with a basic distributed system using microservices ar
 
 Api gateway acts as a single point of entry for a defined group of microservices (just one service for the sake here) which sits in front of an `application programming interface` (API). We have Identity service as micro service which is responsible for handling the incoming messages (or actually the commands that will be distributed through the services bus). This service will let the user register their information, retrieve their details back, list all the registered users, create account and list them.
 
-Using Docker and Docker Compose, entire application can be packed into the container and can access the api gateway locally through the container or can deploy the same into a virtual machine that runs in the cloud.
+Using Docker and Docker Compose, entire application can be packed into several containers and can access the api gateway locally through the respective container or can deploy the same into a virtual machine that runs in the cloud.
 
 ## Instructions
 
