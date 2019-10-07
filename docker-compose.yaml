@@ -1,0 +1,44 @@
+version: "3"
+
+services:
+  start-dependencies:
+    image: dadarek/wait-for-dependencies
+    depends_on:
+      - mongo
+      - rabbitmq
+    command: rabbitmq:5672
+
+  api-gateway:
+    build:
+      context: .
+      dockerfile: "src/Zip.Challenge.ApiGateway/Dockerfile"
+    links:
+      - rabbitmq
+      - mongo
+    ports:
+      - 8080:80
+    restart: always
+
+  identity-service:
+    build:
+      context: .
+      dockerfile: "src/Zip.Challenge.Services.Identity/Dockerfile"
+    links:
+      - rabbitmq
+      - mongo
+    ports:
+      - 7575:80
+    restart: always
+
+  mongo:
+    image: mongo
+    ports:
+      - '27017:27017'
+
+  rabbitmq:
+    image: rabbitmq:3.6.5-management
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+
+    
